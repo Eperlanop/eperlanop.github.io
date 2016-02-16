@@ -1,0 +1,39 @@
+.ep-1{
+ background-color: lightgrey;
+}
+ep-code{
+ font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+ padding: 2px 4px; 
+ font-size: 90%;
+ color: #C7254E;
+ background-color: #F9F2F4;
+ border-radius: 4px;
+}
+ep-pre{
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+ display: block;
+ padding: 9.5px;
+ margin: 0 0 10px;
+ font-size: 13px;
+ line-height: 1.42857143;
+ color: #333;
+ word-break: break-all;
+ word-wrap: break-word;
+ background-color: #1e90ff;
+ border: 1px solid #CCC;
+ border-radius: 4px;
+ overflow: auto;
+}
+.ep-table{
+  border-radius: 10px;
+}
+td{
+  border-radius: 5px;
+}
+th{
+  border-radius: 3px;
+}
+.ep-1{
+    
+    width: 30%;
+}
