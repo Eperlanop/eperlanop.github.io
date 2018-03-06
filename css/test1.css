@@ -1,63 +1,39 @@
-$bg : #98ff65;
-$size : 30vh;
+@import url('https://fonts.googleapis.com/css?family=Coiny');
 
-*{ box-sizing:border-box;}
 
-.c {
-  width: $size+2;
-  height: $size+2;
-  position: absolute;
-  bottom: -$size/1.8;
-  left: 0;
-  border-radius: 43% 40%  43% 40%;
-  background: #1578b0;
-  animation: 
-    bounce 1s infinite alternate,
-    wave 2s infinite linear, 
-    waking 7s infinite alternate linear;
-  &-e {
-    width: $size/6;
-    height: $size/6;
-    border: $size/23 solid #fff;
-    transform: translateY(0);
-    border-radius: 50%;
-    animation: blink 4s infinite linear;
-  }
-  &-c {
-    display: flex;
-    justify-content: space-around;
-    position: absolute;
-    width: $size - 6;
-    bottom: $size/10;
-    z-index: 1;
-    left: $size/4;
-    padding: 0 ($size/$size - 0.2vw);
-    z-index: 1;
-    animation: waking 7s infinite alternate linear;
-  }
+body {
+    background: #ffffff;
 }
-
-@keyframes wave {
-  100% { transform: rotate(360deg); }
+.cloud-text {
+	font-family: 'Coiny', cursive;
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;	
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/clouds.jpg);
+	background-size: auto;
+	background-attachment: unset;
+	background-position: 0%;
+	width: 80%;
+	margin: 10%;
+	font-size: 134px;
+	animation: clouds-moving infinite 220s;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	animation-timing-function: linear;
+	text-align: center;
 }
-
-@keyframes waking {
-  100% { left: calc(100% - #{$size}); }
+@keyframes clouds-moving {
+	0% {
+		background-position: 0%;	
+	}
+	50% {
+		background-position: 100%;	
+	}
+	100% {
+		background-position: 0%;
+	}
 }
-
-@keyframes bounce {
-  100% { bottom: -$size/1.5; }
-}
-
-@keyframes blink {
-  0%, 5%, 30%, 37%, 100% { 
-    height: $size/6; 
-    border-width: $size/22; 
-    transform: translateY(0); 
-  }
-  3%, 33% {
-    height: 0; 
-    border-width: 0; 
-    transform: translateY(-$size/10); 
-  }
+.attribute {
+	position: relative;
+	font-size: 26px;
+	text-align: center;
 }
