@@ -1,178 +1,63 @@
-body {
-  background: #000;
-}
+$bg : #98ff65;
+$size : 30vh;
 
-.game {
-  width: 280px;
-  height: 120px;
-  position: fixed;
-  top: 0;
+*{ box-sizing:border-box;}
+
+.c {
+  width: $size+2;
+  height: $size+2;
+  position: absolute;
+  bottom: -$size/1.8;
   left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
-/*   outline: 1px solid #000; */
-}
-
-.ghost {
-  width: 100px;
-  height: 80px;
-  background: #D62828;
-  border-radius: 50px 50px 0 0;
-  
-  position: relative;
-  float: right;
-  
-  animation: gfoot .8s .5s infinite;
-}
-
-.gcircle, .eye, eb {
-  position: absolute;
-}
-
-.gcircle {
-  width: 35px;
-  height: 35px;
-  background: #D62828;
-  border-radius: 50%;
-  
-  animation: gfoot .5s infinite;
-}
-.g1, .g2, .g3 {
-  bottom: -20px;
-}
-.g2 {
-  left: 33px;
-}
-.g3 {
-  right: 0;
-}
-
-.eye {
-  width: 25px;
-  height: 30px;
-  border-radius: 25px;
-  background: #fff;
-}
-
-.eb {
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: blue;
-  margin-top: 8px;
-  margin-left: 10px;
-}
-
-.eye1 {
-  top: 30px;
-  left: 15px;
-}
-.eye2 {
-  top: 30px;
-  left: 55px;
-}
-
-
-.pacman {
-  width: 100px;
-  height: 100px;
-  float: left;
-}
-
-.mantop, .manbtm {
-  width: 100px;
-  height: 50px;
-  background: #fd0;
-}
-
-.mantop {
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-  transform-origin: bottom;
-  animation: mantop .5s infinite;
-}
-.manbtm {
-  border-radius: 0 0 50% 50% / 0 0 100% 100%;
-  transform-origin: top;
-  animation: manbtm .5s infinite;
-}
-
-.dotbox {
-  width: 110px;
-  height: 15px;
-  position: relative;
-  top: 58px;
-  left: 60px;
-}
-
-.dot {
-  width: 15px;
-  height: 15px;
-  background: #fff;
-  border-radius: 50%; 
-  position: absolute;
-  animation: dgo .8s infinite;
-}
-
-.d1 {
-  right: 0;
-}
-.d2 {
-  right: 30px;
-}
-.d3 {
-  right: 60px;
-}
-
-
-
-
-
-
-
-/*-----以下是動畫-----*/
-
-@keyframes mantop {
-  from {
-    transform: rotate(-40deg);
+  border-radius: 43% 40%  43% 40%;
+  background: #1578b0;
+  animation: 
+    bounce 1s infinite alternate,
+    wave 2s infinite linear, 
+    waking 7s infinite alternate linear;
+  &-e {
+    width: $size/6;
+    height: $size/6;
+    border: $size/23 solid #fff;
+    transform: translateY(0);
+    border-radius: 50%;
+    animation: blink 4s infinite linear;
   }
-  to {
-    transform: rotate(0);
+  &-c {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    width: $size - 6;
+    bottom: $size/10;
+    z-index: 1;
+    left: $size/4;
+    padding: 0 ($size/$size - 0.2vw);
+    z-index: 1;
+    animation: waking 7s infinite alternate linear;
   }
 }
 
-@keyframes manbtm {
-  from {
-    transform: rotate(40deg);
-  }
-  to {
-    transform: rotate(0);
-  }
+@keyframes wave {
+  100% { transform: rotate(360deg); }
 }
 
-
-
-
-@keyframes gfoot {
-  0% {
-    transform-origin: top;
-    transform: skewX(0deg);   
-  }
-  50% {
-    transform-origin: top;
-    transform: skewX(-3deg);
-  }
-  100% {
-    transform-origin: top;
-    transform: skewX(0deg);
-  }
+@keyframes waking {
+  100% { left: calc(100% - #{$size}); }
 }
 
-@keyframes dgo {
-  from {
-    transform: translateX(0);
+@keyframes bounce {
+  100% { bottom: -$size/1.5; }
+}
+
+@keyframes blink {
+  0%, 5%, 30%, 37%, 100% { 
+    height: $size/6; 
+    border-width: $size/22; 
+    transform: translateY(0); 
   }
-  to {
-    transform: translateX(-30px);
+  3%, 33% {
+    height: 0; 
+    border-width: 0; 
+    transform: translateY(-$size/10); 
   }
 }
